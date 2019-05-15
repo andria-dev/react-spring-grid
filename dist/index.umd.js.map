@@ -1,0 +1,1 @@
+{"version":3,"file":"index.umd.js","sources":["../components/Grid.tsx","../components/Item.tsx"],"sourcesContent":["function Grid() {}\n\nexport { Grid }\n","function Item() {}\n\nexport { Item }\n"],"names":[],"mappings":"4LAAA,oBCAA"}
