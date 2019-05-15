@@ -1,6 +1,10 @@
+dependencies:
+  use-measure: registry.npmjs.org/use-measure/0.2.2
 devDependencies:
   jest: registry.npmjs.org/jest/24.8.0
   microbundle: registry.npmjs.org/microbundle/0.11.0
+  react: registry.npmjs.org/react/16.8.6
+  react-spring: registry.npmjs.org/react-spring/8.0.20
   react-testing-library: registry.npmjs.org/react-testing-library/7.0.0
 lockfileVersion: 5
 packages:
@@ -7203,6 +7207,18 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/prompts/-/prompts-2.0.4.tgz'
     version: 2.0.4
+  registry.npmjs.org/prop-types/15.7.2:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      react-is: registry.npmjs.org/react-is/16.8.6
+    dev: true
+    name: prop-types
+    resolution:
+      integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz'
+    version: 15.7.2
   registry.npmjs.org/psl/1.1.31:
     dev: true
     name: psl
@@ -7332,6 +7348,20 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz'
     version: 16.8.6
+  registry.npmjs.org/react-spring/8.0.20:
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.4.4
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+    dev: true
+    name: react-spring
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    resolution:
+      integrity: sha512-40ZUQ5uI5YHsoQWLPchWNcEUh6zQ6qvcVDeTI2vW10ldoCN3PvDsII9wBH2xEbMl+BQvYmHzGdfLTQxPxJWGnQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/react-spring/-/react-spring-8.0.20.tgz'
+    version: 8.0.20
   registry.npmjs.org/react-testing-library/7.0.0:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.4.4
@@ -7348,6 +7378,21 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/react-testing-library/-/react-testing-library-7.0.0.tgz'
     version: 7.0.0
+  registry.npmjs.org/react/16.8.6:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      scheduler: registry.npmjs.org/scheduler/0.13.6
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    name: react
+    resolution:
+      integrity: sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/react/-/react-16.8.6.tgz'
+    version: 16.8.6
   registry.npmjs.org/read-pkg-up/4.0.0:
     dependencies:
       find-up: registry.npmjs.org/find-up/3.0.0
@@ -7682,6 +7727,14 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/reserved-words/-/reserved-words-0.1.2.tgz'
     version: 0.1.2
+  registry.npmjs.org/resize-observer-polyfill/1.5.1:
+    dev: false
+    name: resize-observer-polyfill
+    resolution:
+      integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz'
+    version: 1.5.1
   registry.npmjs.org/resolve-cwd/2.0.0:
     dependencies:
       resolve-from: registry.npmjs.org/resolve-from/3.0.0
@@ -8092,6 +8145,17 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/sax/-/sax-1.2.4.tgz'
     version: 1.2.4
+  registry.npmjs.org/scheduler/0.13.6:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+    dev: true
+    name: scheduler
+    resolution:
+      integrity: sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz'
+    version: 0.13.6
   registry.npmjs.org/semver/5.7.0:
     dev: true
     hasBin: true
@@ -9122,6 +9186,18 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/urix/-/urix-0.1.0.tgz'
     version: 0.1.0
+  registry.npmjs.org/use-measure/0.2.2:
+    dependencies:
+      resize-observer-polyfill: registry.npmjs.org/resize-observer-polyfill/1.5.1
+    dev: false
+    name: use-measure
+    peerDependencies:
+      react: ^16.8.0
+    resolution:
+      integrity: sha512-fGRxuhsp6/IUP92bypIt6PzTklCpaZiAuaHgs3LPV5KLF8kWdfP5cAuD01rHR4VgPDEMLBlojxZnTalsqfbo+g==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/use-measure/-/use-measure-0.2.2.tgz'
+    version: 0.2.2
   registry.npmjs.org/use/3.1.1:
     dev: true
     engines:
@@ -9448,4 +9524,7 @@ packages:
 specifiers:
   jest: ^24.8.0
   microbundle: ^0.11.0
+  react: ^16.8.6
+  react-spring: ^8.0.20
   react-testing-library: ^7.0.0
+  use-measure: ^0.2.2
