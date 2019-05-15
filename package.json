@@ -2,7 +2,7 @@
   "name": "react-spring-grid",
   "version": "1.0.0",
   "description": "An animated grid component built with react-spring",
-  "source": "index.js",
+  "source": "index.ts",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
   "unpkg": "dist/index.umd.js",
@@ -35,6 +35,7 @@
   "homepage": "https://github.com/ChrisBrownie55/react-spring-grid#readme",
   "devDependencies": {
     "jest": "^24.8.0",
-    "microbundle": "^0.11.0"
+    "microbundle": "^0.11.0",
+    "react-testing-library": "^7.0.0"
   }
 }
