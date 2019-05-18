@@ -1,6 +1,7 @@
 dependencies:
   use-measure: registry.npmjs.org/use-measure/0.2.2
 devDependencies:
+  '@types/react': registry.npmjs.org/@types/react/16.8.17
   jest: registry.npmjs.org/jest/24.8.0
   microbundle: registry.npmjs.org/microbundle/0.11.0
   react: registry.npmjs.org/react/16.8.6
@@ -608,6 +609,14 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/@types/node/-/node-12.0.1.tgz'
     version: 12.0.1
+  registry.npmjs.org/@types/prop-types/15.7.1:
+    dev: true
+    name: '@types/prop-types'
+    resolution:
+      integrity: sha512-CFzn9idOEpHrgdw8JsoTkaDDyRWk1jrzIV8djzcgpq0y9tG4B4lFT+Nxh52DVpDXV+n4+NPNv7M1Dj5uMp6XFg==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.1.tgz'
+    version: 15.7.1
   registry.npmjs.org/@types/q/1.5.2:
     dev: true
     name: '@types/q'
@@ -616,6 +625,17 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/@types/q/-/q-1.5.2.tgz'
     version: 1.5.2
+  registry.npmjs.org/@types/react/16.8.17:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.1
+      csstype: registry.npmjs.org/csstype/2.6.4
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-pln3mgc6VfkNg92WXODul/ONo140huK9OMsx62GlBlZ2lvjNK86PQJhYMPLO1i66aF5O9OPyZefogvNltBIszA==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/@types/react/-/react-16.8.17.tgz'
+    version: 16.8.17
   registry.npmjs.org/@types/resolve/0.0.8:
     dependencies:
       '@types/node': registry.npmjs.org/@types/node/12.0.1
@@ -2209,6 +2229,14 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/cssstyle/-/cssstyle-1.2.2.tgz'
     version: 1.2.2
+  registry.npmjs.org/csstype/2.6.4:
+    dev: true
+    name: csstype
+    resolution:
+      integrity: sha512-lAJUJP3M6HxFXbqtGRc0iZrdyeN+WzOWeY0q/VnFzI+kqVrYIzC7bWlKqCW7oCIdzoPkvfp82EVvrTlQ8zsWQg==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/csstype/-/csstype-2.6.4.tgz'
+    version: 2.6.4
   registry.npmjs.org/dashdash/1.14.1:
     dependencies:
       assert-plus: registry.npmjs.org/assert-plus/1.0.0
@@ -9522,6 +9550,7 @@ packages:
       tarball: 'https://registry.npmjs.org/yargs/-/yargs-12.0.5.tgz'
     version: 12.0.5
 specifiers:
+  '@types/react': ^16.8.17
   jest: ^24.8.0
   microbundle: ^0.11.0
   react: ^16.8.6
