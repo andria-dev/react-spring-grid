@@ -2,11 +2,11 @@ import React from 'react'
 import { useSpring, useTransition } from 'react-spring'
 import { ObjectOf, UnwrapArray } from '../generics'
 
-type useTransitionReturn = ReturnType<typeof useTransition>
+type style = UnwrapArray<ReturnType<typeof useTransition>>['props']
 
 export interface RendererProps extends ObjectOf<any> {
   data: any
-  style: useTransitionReturn
+  style: style
 }
 
 export interface Props<T> {
@@ -14,7 +14,7 @@ export interface Props<T> {
   data: T
   x: number
   y: number
-  style: UnwrapArray<useTransitionReturn>['props']
+  style: style
 }
 
 export function Item<T>({ renderer: Renderer, data, style, x, y }: Props<T>) {
