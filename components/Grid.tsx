@@ -22,7 +22,7 @@ export function Grid<T>({
   style,
   ...props
 }: Props<T>) {
-  const transition = useTransition(items, keys, {
+  const transition = useTransition<T, React.CSSProperties>(items, keys, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
@@ -42,7 +42,8 @@ export function Grid<T>({
     >
       {transition.map(({ item, key, props }) => (
         <Item<T>
-          component={ItemRenderer}
+          key={key}
+          renderer={ItemRenderer}
           data={item}
           style={props}
           x={x}
