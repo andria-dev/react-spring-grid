@@ -3,22 +3,22 @@ import { useTransition } from 'react-spring'
 import useMeasure from 'use-measure'
 
 import { Item } from './Item'
+import { ObjectOf, Component } from '../generics'
 
 type useTransitionParams = Parameters<typeof useTransition>
 
-export interface Props<T> {
-  items: useTransitionParams[0]
+export interface Props<T> extends ObjectOf<any> {
+  items: T | T[]
   keys: useTransitionParams[1]
-  children: JSX.IntrinsicElements | JSX.ElementClass
-  component: Parameters<typeof Item>[0]['component']
-  [s: string]: any
+  renderer: Parameters<typeof Item>[0]['renderer']
+  wrapper: Component
 }
 
-function Grid<T>({
+export function Grid<T>({
   items,
   keys,
-  children: ItemRenderer,
-  component: Component = 'section',
+  renderer: ItemRenderer,
+  wrapper: Component = 'section',
   style,
   ...props
 }: Props<T>) {
@@ -41,10 +41,14 @@ function Grid<T>({
       {...props}
     >
       {transition.map(({ item, key, props }) => (
-        <Item component={ItemRenderer} data={item} style={props} x={x} y={y} />
+        <Item<T>
+          component={ItemRenderer}
+          data={item}
+          style={props}
+          x={x}
+          y={y}
+        />
       ))}
     </Component>
   )
 }
-
-export { Grid }
