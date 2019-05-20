@@ -1,12 +1,12 @@
 import React from 'react'
-import { useSpring } from 'react-spring'
+import { useSpring, useTransition } from 'react-spring'
 
 interface Props<T> {
   component: any
   data: T
   x: number
   y: number
-  style: { [s: string]: any }
+  style: ReturnType<typeof useTransition>
 }
 
 function Item<T>({ component: Component, data, style, x, y }: Props<T>) {

@@ -4,11 +4,13 @@ import useMeasure from 'use-measure'
 
 import { Item } from './Item'
 
+type useTransitionParams = Parameters<typeof useTransition>
+
 export interface Props<T> {
-  items: T[]
-  keys: ((item: T) => any) | any[]
-  children: any
-  component: any
+  items: useTransitionParams[0]
+  keys: useTransitionParams[1]
+  children: JSX.IntrinsicElements | JSX.ElementClass
+  component: Parameters<typeof Item>[0]['component']
   [s: string]: any
 }
 
@@ -21,11 +23,8 @@ function Grid<T>({
   ...props
 }: Props<T>) {
   const transition = useTransition(items, keys, {
-    // @ts-ignore
     from: { opacity: 0 },
-    // @ts-ignore
     enter: { opacity: 1 },
-    // @ts-ignore
     leave: { opacity: 0 }
   })
 
