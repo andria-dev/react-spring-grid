@@ -13,7 +13,7 @@ test('should render', () => {
         height: 100
       }))}
       keys={(item: any) => item.value}
-      renderer={({ data, ...props }) => <div {...props}>{data}</div>}
+      renderer={({ data, ...props }) => <div {...props}>{data.value}</div>}
       wrapper="section"
     />
   )

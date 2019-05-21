@@ -51,7 +51,10 @@ export function Grid<T extends RequiredItemFields>({
           tallestInRow = item.height
         }
 
-        if (x + items[index + 1].width > containerWidth) {
+        if (
+          index + 1 < items.length &&
+          x + items[index + 1].width > containerWidth
+        ) {
           y += tallestInRow
           tallestInRow = 0
         }
