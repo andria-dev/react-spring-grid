@@ -3,11 +3,15 @@ import { useTransition } from 'react-spring';
 import { Item } from './Item';
 import { ObjectOf, Component } from '../generics';
 declare type useTransitionParams = Parameters<typeof useTransition>;
-export interface Props<T> extends ObjectOf<any> {
-    items: T | T[];
+export interface RequiredItemFields {
+    width: number;
+    height: number;
+}
+export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
+    items: T[];
     keys: useTransitionParams[1];
     renderer: Parameters<typeof Item>[0]['renderer'];
     wrapper: Component;
 }
-export declare function Grid<T>({ items, keys, renderer: ItemRenderer, wrapper: Component, style, ...props }: Props<T>): JSX.Element;
+export declare function Grid<T extends RequiredItemFields>({ items, keys, renderer: ItemRenderer, wrapper: Component, style, ...props }: Props<T>): JSX.Element;
 export {};

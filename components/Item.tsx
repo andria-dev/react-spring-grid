@@ -4,13 +4,13 @@ import { ObjectOf, UnwrapArray } from '../generics'
 
 type style = UnwrapArray<ReturnType<typeof useTransition>>['props']
 
-export interface RendererProps extends ObjectOf<any> {
-  data: any
+export interface RendererProps<T> extends ObjectOf<any> {
+  data: T
   style: style
 }
 
 export interface Props<T> {
-  renderer: React.ComponentType<RendererProps>
+  renderer: React.ComponentType<RendererProps<T>>
   data: T
   x: number
   y: number
