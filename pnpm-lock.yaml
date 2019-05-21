@@ -3,10 +3,12 @@ dependencies:
 devDependencies:
   '@types/jest': registry.npmjs.org/@types/jest/24.0.13
   '@types/react': registry.npmjs.org/@types/react/16.8.17
+  babel-jest: registry.npmjs.org/babel-jest/24.8.0
   jest: registry.npmjs.org/jest/24.8.0
   jest-dom: registry.npmjs.org/jest-dom/3.2.2
   microbundle: registry.npmjs.org/microbundle/0.11.0
   react: registry.npmjs.org/react/16.8.6
+  react-dom: registry.npmjs.org/react-dom/16.8.6
   react-spring: registry.npmjs.org/react-spring/8.0.20
   react-testing-library: registry.npmjs.org/react-testing-library/7.0.0
   ts-jest: registry.npmjs.org/ts-jest/24.0.2
@@ -227,6 +229,18 @@ packages:
       integrity: sha512-VyN4QANJkRW6lDBmENzRszvZf3/4AXaj9YR7GwrWeeN9tEBPuXbmDYVU9bYBN0D70zCWVwUy0HWq2553VCb6Hw==
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.2.0.tgz'
+    version: 7.2.0
+  registry.npmjs.org/@babel/plugin-syntax-object-rest-spread/7.2.0:
+    dependencies:
+      '@babel/helper-plugin-utils': registry.npmjs.org/@babel/helper-plugin-utils/7.0.0
+    dev: true
+    name: '@babel/plugin-syntax-object-rest-spread'
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-t0JKGgqk2We+9may3t0xDdmneaXmyxq0xieYcKHxIsrJO64n1OiMWNUtc5gQK1PA0NpdCRrtZp4z+IUaKugrSA==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/@babel/plugin-syntax-object-rest-spread/-/plugin-syntax-object-rest-spread-7.2.0.tgz'
     version: 7.2.0
   registry.npmjs.org/@babel/plugin-syntax-object-rest-spread/7.2.0_@babel+core@7.4.4:
     dependencies:
@@ -1078,6 +1092,26 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/aws4/-/aws4-1.8.0.tgz'
     version: 1.8.0
+  registry.npmjs.org/babel-jest/24.8.0:
+    dependencies:
+      '@jest/transform': registry.npmjs.org/@jest/transform/24.8.0
+      '@jest/types': registry.npmjs.org/@jest/types/24.8.0
+      '@types/babel__core': registry.npmjs.org/@types/babel__core/7.1.2
+      babel-plugin-istanbul: registry.npmjs.org/babel-plugin-istanbul/5.1.4
+      babel-preset-jest: registry.npmjs.org/babel-preset-jest/24.6.0
+      chalk: registry.npmjs.org/chalk/2.4.2
+      slash: registry.npmjs.org/slash/2.0.0
+    dev: true
+    engines:
+      node: '>= 6'
+    name: babel-jest
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    resolution:
+      integrity: sha512-+5/kaZt4I9efoXzPlZASyK/lN9qdRKmmUav9smVc0ruPQD7IsfucQ87gpOE8mn2jbDuS6M/YOW6n3v9ZoIfgnw==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/babel-jest/-/babel-jest-24.8.0.tgz'
+    version: 24.8.0
   registry.npmjs.org/babel-jest/24.8.0_@babel+core@7.4.4:
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.4.4
@@ -1134,6 +1168,21 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/babel-plugin-transform-async-to-promises/-/babel-plugin-transform-async-to-promises-0.8.10.tgz'
     version: 0.8.10
+  registry.npmjs.org/babel-preset-jest/24.6.0:
+    dependencies:
+      '@babel/plugin-syntax-object-rest-spread': registry.npmjs.org/@babel/plugin-syntax-object-rest-spread/7.2.0
+      babel-plugin-jest-hoist: registry.npmjs.org/babel-plugin-jest-hoist/24.6.0
+    dev: true
+    engines:
+      node: '>= 6'
+    name: babel-preset-jest
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    resolution:
+      integrity: sha512-pdZqLEdmy1ZK5kyRUfvBb2IfTPb2BUvIJczlPspS8fWmBQslNNDBqVfh7BW5leOVJMDZKzjD8XEyABTk6gQ5yw==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/babel-preset-jest/-/babel-preset-jest-24.6.0.tgz'
+    version: 24.6.0
   registry.npmjs.org/babel-preset-jest/24.6.0_@babel+core@7.4.4:
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.4.4
@@ -7496,6 +7545,21 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/rc/-/rc-1.2.8.tgz'
     version: 1.2.8
+  registry.npmjs.org/react-dom/16.8.6:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      scheduler: registry.npmjs.org/scheduler/0.13.6
+    dev: true
+    name: react-dom
+    peerDependencies:
+      react: ^16.0.0
+    resolution:
+      integrity: sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.8.6.tgz'
+    version: 16.8.6
   registry.npmjs.org/react-is/16.8.6:
     dev: true
     name: react-is
@@ -9746,10 +9810,12 @@ packages:
 specifiers:
   '@types/jest': ^24.0.13
   '@types/react': ^16.8.17
+  babel-jest: ^24.8.0
   jest: ^24.8.0
   jest-dom: ^3.2.2
   microbundle: ^0.11.0
   react: ^16.8.6
+  react-dom: ^16.8.6
   react-spring: ^8.0.20
   react-testing-library: ^7.0.0
   ts-jest: ^24.0.2

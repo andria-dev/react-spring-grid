@@ -5,7 +5,7 @@ import { render, cleanup } from 'react-testing-library'
 import 'jest-dom/extend-expect'
 
 test('should render', () => {
-  const { getByTestId } = render(
+  const { debug } = render(
     <Grid
       items={[1, 2, 3, 4, 5, 6].map(x => ({
         value: x,
@@ -17,6 +17,8 @@ test('should render', () => {
       wrapper="section"
     />
   )
+
+  debug()
 })
 
 test.todo('should render items on multiple rows')
