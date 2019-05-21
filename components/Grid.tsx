@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useTransition } from 'react-spring'
 import useMeasure from 'use-measure'
 
-import { Item } from './Item'
+import { Item, Props as ItemProps } from './Item'
 import { ObjectOf, Component } from '../generics'
 
 type useTransitionParams = Parameters<typeof useTransition>
@@ -14,7 +14,7 @@ export interface RequiredItemFields {
 export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
   items: T[]
   keys: useTransitionParams[1]
-  renderer: Parameters<typeof Item>[0]['renderer']
+  renderer: ItemProps<T>['renderer']
   wrapper: Component
 }
 

@@ -13,7 +13,7 @@
   "scripts": {
     "build": "microbundle --jsx=react --raw",
     "dev": "microbundle watch --jsx=react --raw",
-    "test": "jest"
+    "test": "jest --notify"
   },
   "repository": {
     "type": "git",
@@ -34,12 +34,14 @@
   },
   "homepage": "https://github.com/ChrisBrownie55/react-spring-grid#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.13",
     "@types/react": "^16.8.17",
     "jest": "^24.8.0",
     "microbundle": "^0.11.0",
     "react": "^16.8.6",
     "react-spring": "^8.0.20",
-    "react-testing-library": "^7.0.0"
+    "react-testing-library": "^7.0.0",
+    "ts-jest": "^24.0.2"
   },
   "peerDependencies": {
     "react": "~16.8.6",
