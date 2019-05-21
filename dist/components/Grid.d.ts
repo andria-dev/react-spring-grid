@@ -11,7 +11,7 @@ export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
     items: T[];
     keys: useTransitionParams[1];
     renderer: ItemProps<T>['renderer'];
-    wrapper: Component;
+    wrapper?: Component;
 }
 export declare function Grid<T extends RequiredItemFields>({ items, keys, renderer: ItemRenderer, wrapper: Component, style, ...props }: Props<T>): JSX.Element;
 export {};

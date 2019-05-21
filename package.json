@@ -13,7 +13,8 @@
   "scripts": {
     "build": "microbundle --jsx=react --raw",
     "dev": "microbundle watch --jsx=react --raw",
-    "test": "jest --notify"
+    "test": "jest --notify",
+    "test:watch": "jest --notify --watch"
   },
   "repository": {
     "type": "git",
@@ -37,11 +38,13 @@
     "@types/jest": "^24.0.13",
     "@types/react": "^16.8.17",
     "jest": "^24.8.0",
+    "jest-dom": "^3.2.2",
     "microbundle": "^0.11.0",
     "react": "^16.8.6",
     "react-spring": "^8.0.20",
     "react-testing-library": "^7.0.0",
-    "ts-jest": "^24.0.2"
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
   },
   "peerDependencies": {
     "react": "~16.8.6",

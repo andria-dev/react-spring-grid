@@ -4,11 +4,13 @@ devDependencies:
   '@types/jest': registry.npmjs.org/@types/jest/24.0.13
   '@types/react': registry.npmjs.org/@types/react/16.8.17
   jest: registry.npmjs.org/jest/24.8.0
+  jest-dom: registry.npmjs.org/jest-dom/3.2.2
   microbundle: registry.npmjs.org/microbundle/0.11.0
   react: registry.npmjs.org/react/16.8.6
   react-spring: registry.npmjs.org/react-spring/8.0.20
   react-testing-library: registry.npmjs.org/react-testing-library/7.0.0
   ts-jest: registry.npmjs.org/ts-jest/24.0.2
+  typescript: registry.npmjs.org/typescript/3.4.5
 lockfileVersion: 5
 packages:
   registry.npmjs.org/@babel/code-frame/7.0.0:
@@ -2076,6 +2078,27 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/css-what/-/css-what-2.1.3.tgz'
     version: 2.1.3
+  registry.npmjs.org/css.escape/1.5.1:
+    dev: true
+    name: css.escape
+    resolution:
+      integrity: sha1-QuJ9T6BK4y+TGktNQZH6nN3ul8s=
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/css.escape/-/css.escape-1.5.1.tgz'
+    version: 1.5.1
+  registry.npmjs.org/css/2.2.4:
+    dependencies:
+      inherits: registry.npmjs.org/inherits/2.0.3
+      source-map: registry.npmjs.org/source-map/0.6.1
+      source-map-resolve: registry.npmjs.org/source-map-resolve/0.5.2
+      urix: registry.npmjs.org/urix/0.1.0
+    dev: true
+    name: css
+    resolution:
+      integrity: sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/css/-/css-2.2.4.tgz'
+    version: 2.2.4
   registry.npmjs.org/cssesc/0.1.0:
     dev: true
     hasBin: true
@@ -3715,6 +3738,16 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/imurmurhash/-/imurmurhash-0.1.4.tgz'
     version: 0.1.4
+  registry.npmjs.org/indent-string/3.2.0:
+    dev: true
+    engines:
+      node: '>=4'
+    name: indent-string
+    resolution:
+      integrity: sha1-Sl/W0nzDMvN+VBmlBNu4NxBckok=
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/indent-string/-/indent-string-3.2.0.tgz'
+    version: 3.2.0
   registry.npmjs.org/indexes-of/1.0.1:
     dev: true
     name: indexes-of
@@ -4432,6 +4465,26 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/jest-docblock/-/jest-docblock-24.3.0.tgz'
     version: 24.3.0
+  registry.npmjs.org/jest-dom/3.2.2:
+    dependencies:
+      chalk: registry.npmjs.org/chalk/2.4.2
+      css: registry.npmjs.org/css/2.2.4
+      css.escape: registry.npmjs.org/css.escape/1.5.1
+      jest-diff: registry.npmjs.org/jest-diff/24.8.0
+      jest-matcher-utils: registry.npmjs.org/jest-matcher-utils/24.8.0
+      lodash: registry.npmjs.org/lodash/4.17.11
+      pretty-format: registry.npmjs.org/pretty-format/24.8.0
+      redent: registry.npmjs.org/redent/2.0.0
+    dev: true
+    engines:
+      node: '> 4'
+      npm: '> 3'
+    name: jest-dom
+    resolution:
+      integrity: sha512-Fnq3Y6d0MoDAJV8pAXkqe/e4VTBihRGaJypXvaHTLL9oRYzOvz0Q04evi5SBwPQ7FBiujQQOPXoEgEBGTg5BaA==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/jest-dom/-/jest-dom-3.2.2.tgz'
+    version: 3.2.2
   registry.npmjs.org/jest-each/24.8.0:
     dependencies:
       '@jest/types': registry.npmjs.org/@jest/types/24.8.0
@@ -7551,6 +7604,19 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/realpath-native/-/realpath-native-1.1.0.tgz'
     version: 1.1.0
+  registry.npmjs.org/redent/2.0.0:
+    dependencies:
+      indent-string: registry.npmjs.org/indent-string/3.2.0
+      strip-indent: registry.npmjs.org/strip-indent/2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    name: redent
+    resolution:
+      integrity: sha1-wbIAe0LVfrE4kHmzyDM2OdXhzKo=
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/redent/-/redent-2.0.0.tgz'
+    version: 2.0.0
   registry.npmjs.org/reduce-css-calc/1.3.0:
     dependencies:
       balanced-match: registry.npmjs.org/balanced-match/0.4.2
@@ -8781,6 +8847,16 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/strip-eof/-/strip-eof-1.0.0.tgz'
     version: 1.0.0
+  registry.npmjs.org/strip-indent/2.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    name: strip-indent
+    resolution:
+      integrity: sha1-XvjbKV0B5u1sv3qrlpmNeCJSe2g=
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/strip-indent/-/strip-indent-2.0.0.tgz'
+    version: 2.0.0
   registry.npmjs.org/strip-json-comments/2.0.1:
     dev: true
     engines:
@@ -9671,9 +9747,11 @@ specifiers:
   '@types/jest': ^24.0.13
   '@types/react': ^16.8.17
   jest: ^24.8.0
+  jest-dom: ^3.2.2
   microbundle: ^0.11.0
   react: ^16.8.6
   react-spring: ^8.0.20
   react-testing-library: ^7.0.0
   ts-jest: ^24.0.2
+  typescript: ^3.4.5
   use-measure: ^0.2.2
