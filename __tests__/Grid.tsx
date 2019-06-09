@@ -24,12 +24,15 @@ test('should render', async () => {
     />
   )
 
-  await wait(() => {
-    if (!getByText('1').style.left) {
-      throw new Error('left missing')
-    }
-  })
-  debug()
+  try {
+    await wait(() => {
+      if (!getByText('1').getAttribute('style')) {
+        throw new Error('Style is missing')
+      }
+    })
+  } finally {
+    debug()
+  }
 })
 
 test.todo('should render items on multiple rows')
