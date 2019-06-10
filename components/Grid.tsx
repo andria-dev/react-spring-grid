@@ -27,7 +27,7 @@ export function Grid<T extends RequiredItemFields>({
   ...props
 }: Props<T>) {
   const transition = useTransition<T, React.CSSProperties>(items, keys, {
-    from: { opacity: 0 },
+    from: { opacity: 0, position: 'absolute' },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
   })
