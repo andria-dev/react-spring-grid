@@ -1,7 +1,5 @@
-const merge = require('merge')
-const tsJest = require('ts-jest/jest-preset')
-const jestPuppeteer = require('jest-puppeteer/jest-preset')
-
-module.exports = merge(tsJest, jestPuppeteer, {
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
   testMatch: ['**/__tests__/**/*.tsx']
-})
+}

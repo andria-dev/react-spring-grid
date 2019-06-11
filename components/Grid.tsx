@@ -16,6 +16,8 @@ export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
   keys: useTransitionParams[1]
   renderer: ItemProps<T>['renderer']
   wrapper?: Component
+  columnGap: number
+  rowGap: number
 }
 
 export function Grid<T extends RequiredItemFields>({
@@ -24,6 +26,8 @@ export function Grid<T extends RequiredItemFields>({
   renderer: ItemRenderer,
   wrapper: Component = 'section',
   style,
+  columnGap = 0,
+  rowGap = 0,
   ...props
 }: Props<T>) {
   const transition = useTransition<T, React.CSSProperties>(items, keys, {
@@ -35,7 +39,7 @@ export function Grid<T extends RequiredItemFields>({
   const containerRef = useRef(null)
   const { width: containerWidth } = useMeasure(containerRef)
 
-  let x = items.length || -items[0].width
+  let x = items.length !== 0 ? -items[0].width - columnGap : 0
   let y = 0
   let tallestInRow = 0
 
@@ -46,7 +50,7 @@ export function Grid<T extends RequiredItemFields>({
       {...props}
     >
       {transition.map(({ item, key, props }, index) => {
-        x += item.width
+        x += item.width + columnGap
         if (item.height > tallestInRow) {
           tallestInRow = item.height
         }
@@ -55,7 +59,8 @@ export function Grid<T extends RequiredItemFields>({
           index + 1 < items.length &&
           x + items[index + 1].width > containerWidth
         ) {
-          y += tallestInRow
+          x = 0
+          y += tallestInRow + rowGap
           tallestInRow = 0
         }
 
@@ -64,7 +69,7 @@ export function Grid<T extends RequiredItemFields>({
             key={key}
             renderer={ItemRenderer}
             data={item}
-            style={props}
+            style={{ ...props, width: item.width, height: item.height }}
             x={x}
             y={y}
           />
