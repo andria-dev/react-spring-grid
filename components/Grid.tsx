@@ -70,6 +70,7 @@ export function Grid<T extends RequiredItemFields>({
             key={key}
             renderer={ItemRenderer}
             data={item}
+            index={index}
             style={{ ...props, width: item.width, height: item.height }}
             x={currentX}
             y={currentY}
