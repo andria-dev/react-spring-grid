@@ -98,10 +98,11 @@ describe('<Grid /> items should animate on removal and insertion:', () => {
   let renderResult: RenderResult
   let elements: HTMLElement[]
   beforeEach(async () => {
-    ;[renderResult, elements] = await renderGrid({ columnGap: 10, rowGap: 20 })
+    ;[renderResult, elements] = await renderGrid()
   })
 
   test('Opacity', async () => {
+    // wait for elements[0] to fade in
     await wait(() => {
       if (elements[0].style.opacity !== '1') {
         throw new Error('Elements never faded in')
@@ -109,16 +110,15 @@ describe('<Grid /> items should animate on removal and insertion:', () => {
     })
 
     act(() => {
-      renderResult.rerender(
-        <App columnGap={10} rowGap={20} items={itemsData.slice(1)} />
-      )
+      renderResult.rerender(<App items={itemsData.slice(1)} />)
     })
     elements = renderResult.getAllByTestId('grid-item')
 
+    // wait for elements[0] to begin fade out
     await wait(
       () => {
         if (Number(elements[0].style.opacity) === 1) {
-          throw new Error('Element never faded out')
+          throw new Error('Element never started to fade out')
         }
       },
       { timeout: 3000 }
@@ -126,5 +126,31 @@ describe('<Grid /> items should animate on removal and insertion:', () => {
     renderResult.debug()
   })
 
-  test.todo('Position', () => {})
+  test('Position', async () => {
+    act(() => {
+      renderResult.rerender(<App items={itemsData.slice(1)} />)
+    })
+    elements = renderResult.getAllByTestId('grid-item')
+
+    // wait for elements[0] to be removed from the DOM
+    await wait(() => {
+      if (renderResult.container.contains(elements[0])) {
+        throw new Error('First element was never removed')
+      }
+    })
+
+    // wait for elements to move
+    await wait(() => {
+      if (elements[1].style.left !== '0px') {
+        throw new Error("Element's never changed position")
+      }
+    })
+
+    // left
+    expect(elements[2].style.left).toBe('50px')
+
+    // top
+    expect(elements[4].style.top).toBe('0px')
+    expect(elements[5].style.top).toBe('50px')
+  })
 })
