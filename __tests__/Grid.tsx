@@ -16,30 +16,31 @@ let itemsData = [1, 2, 3, 4, 5, 6].map(x => ({
   height: 50
 }))
 
+const App = (props: ObjectOf<any>) => (
+  <div style={{ position: 'absolute' }}>
+    <Grid
+      items={itemsData}
+      keys={(item: any) => item.value}
+      renderer={({ data, style }) => (
+        <animated.div style={style} data-testid="grid-item">
+          {data.value}
+        </animated.div>
+      )}
+      wrapper="section"
+      data-testid="grid"
+      style={{
+        width: 200
+      }}
+      {...props}
+    />
+  </div>
+)
 async function renderGrid(
   props: ObjectOf<any> = {}
 ): Promise<[RenderResult, HTMLElement[]]> {
   useMeasureMock.mockReturnValue({ width: 200 })
 
-  const renderResult = render(
-    <div style={{ position: 'absolute' }}>
-      <Grid
-        items={itemsData}
-        keys={(item: any) => item.value}
-        renderer={({ data, style }) => (
-          <animated.div style={style} data-testid="grid-item">
-            {data.value}
-          </animated.div>
-        )}
-        wrapper="section"
-        data-testid="grid"
-        style={{
-          width: 200
-        }}
-        {...props}
-      />
-    </div>
-  )
+  const renderResult = render(<App {...props} />)
 
   let elements: HTMLElement[] = []
   await wait(() => {
@@ -53,6 +54,7 @@ async function renderGrid(
   return [renderResult, elements]
 }
 
+/* TESTS BELOW */
 describe('<Grid />', () => {
   let renderResult: RenderResult
   let elements: HTMLElement[]
@@ -100,6 +102,16 @@ describe('<Grid /> should render items spaced with gaps:', () => {
 })
 
 describe('<Grid /> items should animate on removal and insertion:', () => {
-  test.todo('Opacity')
+  let renderResult: RenderResult
+  let elements: HTMLElement[]
+  beforeEach(async () => {
+    ;[renderResult, elements] = await renderGrid({ columnGap: 10, rowGap: 20 })
+  })
+
+  test('Opacity', () => {
+    renderResult.rerender(
+      <App columnGap={10} rowGap={20} items={itemsData.slice(1)} />
+    )
+  })
   test.todo('Position')
 })
