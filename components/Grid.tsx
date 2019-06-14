@@ -16,8 +16,8 @@ export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
   keys: useTransitionParams[1]
   renderer: ItemProps<T>['renderer']
   wrapper?: Component
-  columnGap: number
-  rowGap: number
+  columnGap?: number
+  rowGap?: number
 }
 
 export function Grid<T extends RequiredItemFields>({
@@ -39,7 +39,7 @@ export function Grid<T extends RequiredItemFields>({
   const containerRef = useRef(null)
   const { width: containerWidth } = useMeasure(containerRef)
 
-  let x = items.length !== 0 ? -items[0].width - columnGap : 0
+  let x = 0
   let y = 0
   let tallestInRow = 0
 
@@ -50,18 +50,19 @@ export function Grid<T extends RequiredItemFields>({
       {...props}
     >
       {transition.map(({ item, key, props }, index) => {
+        const currentX = x
+        const currentY = y
+
         x += item.width + columnGap
         if (item.height > tallestInRow) {
           tallestInRow = item.height
         }
 
-        if (
-          index + 1 < items.length &&
-          x + items[index + 1].width > containerWidth
-        ) {
-          x = 0
+        // if end of the item is past the end of the container
+        if (x + item.width > containerWidth) {
           y += tallestInRow + rowGap
           tallestInRow = 0
+          x = 0
         }
 
         return (
@@ -70,8 +71,8 @@ export function Grid<T extends RequiredItemFields>({
             renderer={ItemRenderer}
             data={item}
             style={{ ...props, width: item.width, height: item.height }}
-            x={x}
-            y={y}
+            x={currentX}
+            y={currentY}
           />
         )
       })}

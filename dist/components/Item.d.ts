@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
-import { ObjectOf, UnwrapArray } from '../generics';
+import { UnwrapArray } from '../generics';
 declare type style = UnwrapArray<ReturnType<typeof useTransition>>['props'];
-export interface RendererProps<T> extends ObjectOf<any> {
+export interface RendererProps<T> {
     data: T;
     style: style;
 }
