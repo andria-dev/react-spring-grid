@@ -3,7 +3,7 @@ import { useMeasureMock } from './mocks'
 import { Grid } from '../components/Grid'
 import { animated } from 'react-spring'
 
-import { render, cleanup, RenderResult } from 'react-testing-library'
+import { render, cleanup, RenderResult, act } from 'react-testing-library'
 import { wait } from 'dom-testing-library'
 import 'jest-dom/extend-expect'
 import { ObjectOf } from '../generics'
@@ -35,21 +35,14 @@ const App = (props: ObjectOf<any>) => (
     />
   </div>
 )
+
 async function renderGrid(
   props: ObjectOf<any> = {}
 ): Promise<[RenderResult, HTMLElement[]]> {
   useMeasureMock.mockReturnValue({ width: 200 })
 
   const renderResult = render(<App {...props} />)
-
-  let elements: HTMLElement[] = []
-  await wait(() => {
-    elements = renderResult.getAllByTestId('grid-item')
-
-    if (!elements.length) {
-      throw new Error('Failed to render elements')
-    }
-  })
+  const elements = renderResult.getAllByTestId('grid-item')
 
   return [renderResult, elements]
 }
@@ -108,10 +101,30 @@ describe('<Grid /> items should animate on removal and insertion:', () => {
     ;[renderResult, elements] = await renderGrid({ columnGap: 10, rowGap: 20 })
   })
 
-  test('Opacity', () => {
-    renderResult.rerender(
-      <App columnGap={10} rowGap={20} items={itemsData.slice(1)} />
+  test('Opacity', async () => {
+    await wait(() => {
+      if (elements[0].style.opacity !== '1') {
+        throw new Error('Elements never faded in')
+      }
+    })
+
+    act(() => {
+      renderResult.rerender(
+        <App columnGap={10} rowGap={20} items={itemsData.slice(1)} />
+      )
+    })
+    elements = renderResult.getAllByTestId('grid-item')
+
+    await wait(
+      () => {
+        if (Number(elements[0].style.opacity) === 1) {
+          throw new Error('Element never faded out')
+        }
+      },
+      { timeout: 3000 }
     )
+    renderResult.debug()
   })
-  test.todo('Position')
+
+  test.todo('Position', () => {})
 })
