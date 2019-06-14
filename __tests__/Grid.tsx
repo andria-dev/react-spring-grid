@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMeasureMock } from './mocks'
 import { Grid } from '../components/Grid'
 import { animated } from 'react-spring'
 
@@ -8,13 +9,15 @@ import 'jest-dom/extend-expect'
 
 afterEach(cleanup)
 
-const itemsData = [1, 2, 3, 4, 5, 6].map(x => ({
+let itemsData = [1, 2, 3, 4, 5, 6].map(x => ({
   value: x,
   width: 50,
   height: 50
 }))
 
 function renderGrid() {
+  useMeasureMock.mockReturnValue({ width: 200 })
+
   return render(
     <div style={{ position: 'absolute' }}>
       <Grid
@@ -51,7 +54,7 @@ describe('<Grid />', () => {
     })
   })
 
-  test('should render 6 grid items', () => {
+  test('should render each grid item from the data', () => {
     expect(elements).toHaveLength(itemsData.length)
     elements.map((element, index) => {
       expect(element.textContent).toBe(itemsData[index].value.toString())
@@ -59,21 +62,16 @@ describe('<Grid />', () => {
   })
 
   test('should render items on separate rows if they exceed the width of the parent', () => {
-    wait(() => {
-      if (
-        getComputedStyle(renderResult.getByTestId('grid')).width !== '200px'
-      ) {
-        throw new Error('not 200')
-      }
-    })
-
     renderResult.debug()
     expect(elements[0].style.left).toBe('0px')
     expect(elements[1].style.left).toBe('50px')
     expect(elements[2].style.left).toBe('100px')
     expect(elements[3].style.left).toBe('150px')
     expect(elements[4].style.left).toBe('0px')
+    expect(elements[5].style.left).toBe('50px')
   })
+
+  test.todo('should render items spaced with column gaps')
 })
 
 test.todo('should render items on multiple rows')
