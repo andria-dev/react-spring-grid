@@ -20,7 +20,7 @@ const App = (props: ObjectOf<any>) => (
   <div style={{ position: 'absolute' }}>
     <Grid
       items={itemsData}
-      keys={(item: any) => item.value}
+      keys={item => item.value}
       renderer={({ data, style }) => (
         <animated.div style={style} data-testid="grid-item">
           {data.value}
@@ -41,10 +41,13 @@ async function renderGrid(
 ): Promise<[RenderResult, HTMLElement[]]> {
   useMeasureMock.mockReturnValue({ width: 200 })
 
-  const renderResult = render(<App {...props} />)
-  const elements = renderResult.getAllByTestId('grid-item')
+  let renderResult: RenderResult | undefined
+  act(() => {
+    renderResult = render(<App {...props} />)
+  })
+  const elements = renderResult!.getAllByTestId('grid-item')
 
-  return [renderResult, elements]
+  return [renderResult!, elements]
 }
 
 /* TESTS BELOW */
@@ -123,7 +126,6 @@ describe('<Grid /> items should animate on removal and insertion:', () => {
       },
       { timeout: 3000 }
     )
-    renderResult.debug()
   })
 
   test('Position', async () => {
@@ -142,7 +144,7 @@ describe('<Grid /> items should animate on removal and insertion:', () => {
     // wait for elements to move
     await wait(() => {
       if (elements[1].style.left !== '0px') {
-        throw new Error("Element's never changed position")
+        throw new Error('Elements never changed position')
       }
     })
 

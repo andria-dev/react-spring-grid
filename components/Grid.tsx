@@ -1,11 +1,16 @@
 import React, { useRef } from 'react'
-import { useTransition } from 'react-spring'
+import { useTransition, UseTransitionProps } from 'react-spring'
 import useMeasure from 'use-measure'
 
 import { Item, Props as ItemProps } from './Item'
 import { ObjectOf, Component } from '../generics'
 
-type useTransitionParams = Parameters<typeof useTransition>
+type keys<T> =
+  | string
+  | number
+  | readonly (string | number)[]
+  | ((item: T) => string | number)
+  | null
 export interface RequiredItemFields {
   width: number
   height: number
@@ -13,7 +18,7 @@ export interface RequiredItemFields {
 
 export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
   items: T[]
-  keys: useTransitionParams[1]
+  keys: keys<T>
   renderer: ItemProps<T>['renderer']
   wrapper?: Component
   columnGap?: number

@@ -1,15 +1,14 @@
 /// <reference types="react" />
-import { useTransition } from 'react-spring';
 import { Props as ItemProps } from './Item';
 import { ObjectOf, Component } from '../generics';
-declare type useTransitionParams = Parameters<typeof useTransition>;
+declare type keys<T> = string | number | readonly (string | number)[] | ((item: T) => string | number) | null;
 export interface RequiredItemFields {
     width: number;
     height: number;
 }
 export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
     items: T[];
-    keys: useTransitionParams[1];
+    keys: keys<T>;
     renderer: ItemProps<T>['renderer'];
     wrapper?: Component;
     columnGap?: number;
