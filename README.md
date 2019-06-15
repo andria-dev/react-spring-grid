@@ -35,7 +35,7 @@ function ItemRenderer({ data, style }) {
   // `animated` is imported from `react-spring`
   return (
     <animated.div style={style} className="Item">
-      {data.value}
+      {data.value.last}, {data.value.first}
     </animated.div>
   )
 }
