@@ -1,6 +1,6 @@
 {
   "name": "react-spring-grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An animated grid component built with react-spring",
   "source": "index.ts",
   "main": "dist/index.js",
