@@ -54,7 +54,7 @@ function App() {
   return (
     <Grid
       items={itemsData}
-      keys={item => item.value}
+      keys={item => item.value.first}
       renderer={ItemRenderer}
       wrapper="section"
       columnGap={25}
