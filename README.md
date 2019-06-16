@@ -28,6 +28,7 @@ To utilize the `<Grid>` component you need at least 3 of the 6 following things:
 - **`wrapper`** – This is either a string that names an html element (i.e. `'section'` or `'article'`) or it is a component that takes the props `ref` and `style`. Defaults to `'div'`.
 - **`columnGap`** – The gap used between items horizontally. Defaults to `0`
 - **`rowGap`** – Same as `columnGap` but is used between rows. Defaults to `0`
+- **`transitionProps`** – Props passed to the call to `useTransition` allowing you to overwrite the default transition.
 
 ```jsx
 function ItemRenderer({ data, style }) {
