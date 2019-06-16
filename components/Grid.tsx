@@ -54,35 +54,36 @@ export function Grid<T extends RequiredItemFields>({
       style={{ ...style, position: 'relative' }}
       {...props}
     >
-      {containerWidth &&
-        transition.map(({ item, key, props }, index) => {
-          const currentX = x
-          const currentY = y
+      {containerWidth
+        ? transition.map(({ item, key, props }, index) => {
+            const currentX = x
+            const currentY = y
 
-          x += item.width + columnGap
-          if (item.height > tallestInRow) {
-            tallestInRow = item.height
-          }
+            x += item.width + columnGap
+            if (item.height > tallestInRow) {
+              tallestInRow = item.height
+            }
 
-          // if end of the item is past the end of the container
-          if (x + item.width > containerWidth) {
-            y += tallestInRow + rowGap
-            tallestInRow = 0
-            x = 0
-          }
+            // if end of the item is past the end of the container
+            if (x + item.width > containerWidth) {
+              y += tallestInRow + rowGap
+              tallestInRow = 0
+              x = 0
+            }
 
-          return (
-            <Item<T>
-              key={key}
-              renderer={ItemRenderer}
-              data={item}
-              index={index}
-              style={{ ...props, width: item.width, height: item.height }}
-              x={currentX}
-              y={currentY}
-            />
-          )
-        })}
+            return (
+              <Item<T>
+                key={key}
+                renderer={ItemRenderer}
+                data={item}
+                index={index}
+                style={{ ...props, width: item.width, height: item.height }}
+                x={currentX}
+                y={currentY}
+              />
+            )
+          })
+        : null}
     </Component>
   )
 }
