@@ -23,6 +23,7 @@ export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
   wrapper?: Component
   columnGap?: number
   rowGap?: number
+  transitionProps?: ObjectOf<any>
 }
 
 export function Grid<T extends RequiredItemFields>({
@@ -33,12 +34,14 @@ export function Grid<T extends RequiredItemFields>({
   style,
   columnGap = 0,
   rowGap = 0,
+  transitionProps = {},
   ...props
 }: Props<T>) {
   const transition = useTransition<T, React.CSSProperties>(items, keys, {
     from: { opacity: 0, position: 'absolute' },
     enter: { opacity: 1 },
-    leave: { opacity: 0 }
+    leave: { opacity: 0 },
+    ...transitionProps
   })
 
   const containerRef = useRef(null)
