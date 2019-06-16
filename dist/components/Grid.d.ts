@@ -13,6 +13,7 @@ export interface Props<T extends RequiredItemFields> extends ObjectOf<any> {
     wrapper?: Component;
     columnGap?: number;
     rowGap?: number;
+    transitionProps?: ObjectOf<any>;
 }
-export declare function Grid<T extends RequiredItemFields>({ items, keys, renderer: ItemRenderer, wrapper: Component, style, columnGap, rowGap, ...props }: Props<T>): JSX.Element;
+export declare function Grid<T extends RequiredItemFields>({ items, keys, renderer: ItemRenderer, wrapper: Component, style, columnGap, rowGap, transitionProps, ...props }: Props<T>): JSX.Element;
 export {};
